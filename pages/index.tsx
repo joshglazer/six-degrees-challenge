@@ -8,7 +8,7 @@ import PeopleProgression, {
 import PersonSearchField from "../components/PersonSearchField";
 
 const Home: NextPage = () => {
-  const { handleSubmit, setValue, formState, watch } = useForm();
+  const { handleSubmit, setValue, watch } = useForm();
 
   function submitForm(formData: any) {
     console.log(formData);
