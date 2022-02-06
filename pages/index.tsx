@@ -5,11 +5,10 @@ import Layout from "../components/layout/Layout";
 import PeopleProgression, {
   PeopleProgressionProps,
 } from "../components/people-progression/PeopleProgression";
-import PersonDetails from "../components/PersonDetails";
 import PersonSearchField from "../components/PersonSearchField";
 
 const Home: NextPage = () => {
-  const { handleSubmit, setValue, formState, getValues, watch } = useForm();
+  const { handleSubmit, setValue, formState, watch } = useForm();
 
   function submitForm(formData: any) {
     console.log(formData);
@@ -47,8 +46,6 @@ const Home: NextPage = () => {
           setValue={setValue}
         />
         <PeopleProgression progression={getPeopleProgression()} />
-        {/* <PersonDetails {...watch("startPerson")}></PersonDetails>
-        <PersonDetails {...watch("endPerson")}></PersonDetails> */}
         <Form.Field>
           <Button>Start the Challenge!</Button>
         </Form.Field>

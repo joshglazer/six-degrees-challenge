@@ -1,11 +1,10 @@
 import React from "react";
-import { StrictSearchResultProps } from "semantic-ui-react";
-import PersonDetails from "../PersonDetails";
+import PersonDetails, { PersonDetailsProps } from "../PersonDetails";
 import styles from "./PeopleProgression.module.css";
 
 interface PeopleProgressionProps {
   progression: {
-    person?: StrictSearchResultProps;
+    person?: PersonDetailsProps;
     progressionToNext?: string;
   }[];
 }

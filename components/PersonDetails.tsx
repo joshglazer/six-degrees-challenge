@@ -2,7 +2,12 @@ import React from "react";
 import { StrictSearchResultProps } from "semantic-ui-react";
 import Image from "next/image";
 
-function PersonDetails({ title, image }: StrictSearchResultProps) {
+type PersonDetailsProps = Pick<
+  StrictSearchResultProps,
+  "title" | "image" | "id"
+>;
+
+function PersonDetails({ title, image }: PersonDetailsProps) {
   return (
     <div>
       {image && <Image src={image} alt={title} height="384" width="256" />}
@@ -11,4 +16,5 @@ function PersonDetails({ title, image }: StrictSearchResultProps) {
   );
 }
 
+export type { PersonDetailsProps };
 export default PersonDetails;
