@@ -9,7 +9,7 @@ import {
   StrictSearchResultProps,
 } from "semantic-ui-react";
 import { Movie, Person, TvShow } from "tmdb-typescript-api";
-import { getTmdbApiClient, TMDB_BASE_URL } from "../api/tmdbApi";
+import { tmdbApiClient, TMDB_BASE_URL } from "../api/tmdbApi";
 
 interface PersonSearchFieldProps {
   name: string;
@@ -27,13 +27,11 @@ function PersonSearchField({
   const [results, setResults] = useState<StrictSearchResultProps[]>([]);
   const [showNoResults, setShowNoResults] = useState(false);
 
-  const tmdbApi = getTmdbApiClient();
-
   const searchDebounced = useRef(
     debounce((searchValue) => {
       setIsLoading(true);
 
-      tmdbApi.search.people(searchValue).subscribe((people) => {
+      tmdbApiClient.search.people(searchValue).subscribe((people) => {
         setResults(convertTmdbPeopleToSemanticSearchResults(people.results));
         setIsLoading(false);
         setShowNoResults(true);

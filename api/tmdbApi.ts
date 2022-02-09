@@ -8,4 +8,6 @@ function getTmdbApiClient(): TmdbApi {
   return new TmdbApi(TMDB_API_KEY || "");
 }
 
-export { getTmdbApiClient, TMDB_BASE_URL };
+const tmdbApiClient = getTmdbApiClient();
+
+export { TMDB_BASE_URL, tmdbApiClient };
