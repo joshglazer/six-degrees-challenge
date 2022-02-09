@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import router from "next/router";
 import { useForm } from "react-hook-form";
 import { Button, Form, StrictSearchResultProps } from "semantic-ui-react";
 import Layout from "../components/layout/Layout";
@@ -12,6 +13,9 @@ const Home: NextPage = () => {
 
   function submitForm(formData: any) {
     console.log(formData);
+    const startPersonId = formData.startPerson.id;
+    const endPersonId = formData.endPerson.id;
+    router.push(`challenge/${startPersonId}/${endPersonId}`);
   }
 
   function submitFormError(error: any) {
